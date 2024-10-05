@@ -12,6 +12,7 @@ public class WelcomeController {
     @GetMapping
     public String viewWelcomeScreen(Model model){
         model.addAttribute("message", "Welcome to Note Collector");
+        System.out.println("ok");
         return "welcome";
     }
 }

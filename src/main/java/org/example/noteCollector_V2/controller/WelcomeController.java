@@ -1,6 +1,7 @@
 package org.example.noteCollector_V2.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class WelcomeController {
 
     @GetMapping
-    public String viewWelcomeScreen(){
+    public String viewWelcomeScreen(Model model){
+        model.addAttribute("message", "Welcome to Note Collector");
         return "welcome";
     }
 }

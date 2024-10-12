@@ -1,4 +1,4 @@
-package org.example.noteCollector_V2.service;
+package org.example.noteCollector_V2.service.impl;
 
 import jakarta.transaction.Transactional;
 import org.example.noteCollector_V2.customStatusCodes.SelectedUserErrorStatus;
@@ -8,6 +8,7 @@ import org.example.noteCollector_V2.dto.impl.UserDTO;
 import org.example.noteCollector_V2.entity.impl.UserEntity;
 import org.example.noteCollector_V2.exception.DataPersistException;
 import org.example.noteCollector_V2.exception.UserNotFoundException;
+import org.example.noteCollector_V2.service.UserService;
 import org.example.noteCollector_V2.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;

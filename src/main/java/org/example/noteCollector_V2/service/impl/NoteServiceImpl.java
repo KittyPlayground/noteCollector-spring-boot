@@ -1,4 +1,4 @@
-package org.example.noteCollector_V2.service;
+package org.example.noteCollector_V2.service.impl;
 
 import jakarta.transaction.Transactional;
 import org.example.noteCollector_V2.customStatusCodes.SelectedNoteErrorStatus;
@@ -7,6 +7,7 @@ import org.example.noteCollector_V2.dto.NoteStatus;
 import org.example.noteCollector_V2.dto.impl.NoteDTO;
 import org.example.noteCollector_V2.entity.impl.NoteEntity;
 import org.example.noteCollector_V2.exception.DataPersistException;
+import org.example.noteCollector_V2.service.NoteService;
 import org.example.noteCollector_V2.util.AppUtil;
 import org.example.noteCollector_V2.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;

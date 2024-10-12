@@ -3,6 +3,7 @@ package org.example.noteCollector_V2.service;
 
 import org.example.noteCollector_V2.dto.UserStatus;
 import org.example.noteCollector_V2.dto.impl.UserDTO;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
@@ -17,4 +18,7 @@ public interface UserService {
     void updateUser(String userId, UserDTO userDTO);
 
    UserStatus getUser(String userId);
+
+   UserDetailsService userDetailsService();
+
 }

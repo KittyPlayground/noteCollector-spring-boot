@@ -10,6 +10,7 @@ import org.example.noteCollector_V2.exception.DataPersistException;
 import org.example.noteCollector_V2.exception.UserNotFoundException;
 import org.example.noteCollector_V2.util.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -50,6 +51,14 @@ public class UserServiceImpl implements UserService {
         } else {
             return new SelectedUserErrorStatus(2, "User not found");
         }
+
+    }
+
+    @Override
+    public UserDetailsService userDetailsService() {
+       return userName -> userDao.findByEmail(userName)
+               .orElseThrow(() -> new UserNotFoundException("User not found"));
+
 
     }
 

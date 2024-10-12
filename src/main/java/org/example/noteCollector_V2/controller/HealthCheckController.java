@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthCheckController {
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public String healthTest(){
-        return "note controller is  working";
+        return "Server is up and running";
 
     }
 

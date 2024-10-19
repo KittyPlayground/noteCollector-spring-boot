@@ -53,7 +53,8 @@ public class AuthUserController {
             //ToDo:change with auth user service
             authService.signUp(buildUserDTO);
             //userService.saveUser(buildUserDTO);
-            return new ResponseEntity<>(HttpStatus.CREATED);
+            return ResponseEntity.ok(authService.signUp(buildUserDTO));
+           // return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (DataPersistException e) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         } catch (Exception e) {

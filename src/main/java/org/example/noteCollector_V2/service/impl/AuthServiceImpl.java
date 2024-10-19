@@ -10,6 +10,7 @@ import org.example.noteCollector_V2.secure.SignIn;
 import org.example.noteCollector_V2.service.AuthService;
 import org.example.noteCollector_V2.service.JWTService;
 import org.example.noteCollector_V2.util.Mapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -46,6 +47,10 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public JWTAuthResponse refreshToken(String accessToken) {
-        return null;
+        var userName = jwtService.extractUserName(accessToken);
+        var findUser = userDao.findByEmail(userName).orElseThrow(() -> new UsernameNotFoundException("User not found"));
+        var refreshToken = jwtService.refreshToken(findUser);
+        return JWTAuthResponse.builder().token(refreshToken).build();
+
     }
 }
